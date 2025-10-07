@@ -1,23 +1,27 @@
-// import Image from "next/image";
-import Sidebar from "@/app/components/Sidebar";
-import Topbar from "@/app/components/Topbar";
-import Message from "@/app/components/Message";
+"use client";
 
-export default function Home() {
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+export default function HomePage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Giả sử token được lưu trong localStorage khi đăng nhập thành công
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      // Nếu đã đăng nhập → chuyển sang /chat
+      router.replace("/chat");
+    } else {
+      // Nếu chưa đăng nhập → chuyển sang /auth/login
+      router.replace("/auth/login");
+    }
+  }, [router]);
+
   return (
-    <div className="font-sans grid items-center justify-items-stretch min-h-screen">
-      <main className="grid grid-cols-1 sm:grid-cols-12 h-screen w-screen">
-        {/* Cột trái 4/12 */}
-        <section className="sm:col-span-4 h-screen bg-gray-100">
-          <Sidebar />
-        </section>
-
-        {/* Cột phải 8/12 */}
-        <section className="sm:col-span-8 h-screen bg-gray-50">
-          <Topbar />
-          <Message />
-        </section>
-      </main>
+    <div className="flex items-center justify-center h-screen">
+      <p className="text-gray-500">Đang kiểm tra đăng nhập...</p>
     </div>
   );
 }

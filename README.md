@@ -11,3 +11,5 @@ Chat + Encrypt + Forecast
 https://www.geeksforgeeks.org/computer-networks/advanced-encryption-standard-aes/https://www.geeksforgeeks.org/computer-networks/advanced-encryption-standard-aes/
 
 https://pycryptodome.readthedocs.io/en/latest/src/cipher/aes.html
+
+Mật khẩu supabase: gweGdYAbbp7tFY1j
